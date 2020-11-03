@@ -3,19 +3,19 @@ class CalendarsController < ApplicationController
   # １週間のカレンダーと予定が表示されるページ
   def index
     getWeek
-    @plan = Plan.new
+    @plan = Calender.new
   end
 
   # 予定の保存
   def create
-    Plan.create(plan_params)
+    Calender.create(plan_params)
     redirect_to action: :index
   end
 
   private
 
   def plan_params
-    params.require(:calendars).permit(:date, :plan)
+    params.require(:calender).permit(:date, :plan)
   end
 
   def getWeek
@@ -27,7 +27,7 @@ class CalendarsController < ApplicationController
 
     @week_days = []
 
-    plans = Plan.where(date: @todays_date..@todays_date + 6)
+    plans = Calender.where(date: @todays_date..@todays_date + 6)
 
     7.times do |x|
       today_plans = []
