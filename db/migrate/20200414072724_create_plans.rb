@@ -1,6 +1,6 @@
-class CreateCalenders < ActiveRecord::Migration[6.0]
+class CreatePlans < ActiveRecord::Migration[6.0]
   def change
-    create_table :calenders do |t|
+    create_table :plans do |t|
       t.string :plan
       t.date :date
       t.timestamps
